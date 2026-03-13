@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kadapa | Heart of Rayalaseema</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --stone-50: #f5f5f4;
+        --stone-100: #f5f5f4;
+        --stone-200: #e7e5e4;
+        --stone-300: #d6d3d1;
+        --stone-400: #a8a29e;
+        --stone-500: #78716c;
+        --stone-600: #57534e;
+        --stone-700: #44403c;
+        --stone-800: #292524;
+        --stone-900: #1c1917;
+        --amber-600: #d97706;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--stone-50);
+        color: var(--stone-900);
+        overflow-x: hidden;
+        padding-top: 80px; /* Offset for fixed-top navbar */
+      }
+
+      .serif {
+        font-family: 'Playfair Display', serif;
+      }
+
+      /* Navbar Customization */
+      .navbar {
+        background-color: rgba(245, 245, 244, 0.8) !important;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--stone-200);
+      }
+
+      .nav-link {
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--stone-600) !important;
+      }
+
+      .nav-link:hover {
+        color: var(--stone-900) !important;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        padding: 120px 0 80px;
+        background: linear-gradient(to bottom, #fff, var(--stone-50));
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Cards */
+      .card {
+        border: none;
+        border-radius: 20px;
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      .card-img-top {
+        height: 250px;
+        object-fit: cover;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background-color: var(--stone-900);
+        border: none;
+        padding: 12px 24px;
+        border-radius: 12px;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--stone-800);
+      }
+
+      /* Welcome Modal */
+      #welcomeModal .modal-content {
+        border-radius: 30px;
+        border: none;
+        padding: 2rem;
+      }
+
+      .view-section {
+        display: none;
+      }
+
+      .view-active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+      <div class="container">
+        <a class="navbar-brand serif fw-bold fs-3" href="#" onclick="showView('home')">KADAPA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a class="nav-link mx-2" href="#" onclick="showView('home')">Home</a></li>
+            <li class="nav-item"><a class="nav-link mx-2" href="#destinations">Places</a></li>
+            <li class="nav-item"><a class="nav-link mx-2" href="#events">Events</a></li>
+            <li class="nav-item"><a class="nav-link mx-2" href="#food">Cuisine</a></li>
+            <li id="auth-links" class="d-flex align-items-center">
+              <!-- Dynamic Auth Links -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home View -->
+    <div id="home-view" class="view-section view-active">
+      <!-- Carousel -->
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="height: 600px;">
+            <img src="https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/08/Canyon-in-Gandikota-Cover-Photo-840x425.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Gandikota Canyon" referrerpolicy="no-referrer">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-4 p-4 mb-5">
+              <h2 class="serif display-4 fw-bold">Gandikota</h2>
+              <p class="lead">The Grand Canyon of India</p>
+            </div>
+          </div>
+          <div class="carousel-item" style="height: 600px;">
+            <img src="https://i.ytimg.com/vi/AxYg3_TwSmM/maxresdefault.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vontimitta Temple" referrerpolicy="no-referrer">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-4 p-4 mb-5">
+              <h2 class="serif display-4 fw-bold">Vontimitta</h2>
+              <p class="lead">Ancient Spiritual Heritage</p>
+            </div>
+          </div>
+          <div class="carousel-item" style="height: 600px;">
+            <img src="https://en-media.thebetterindia.com/uploads/2016/08/Group-Outing-Belum-Caves3-1152x668.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Belum Caves" referrerpolicy="no-referrer">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-4 p-4 mb-5">
+              <h2 class="serif display-4 fw-bold">Belum Caves</h2>
+              <p class="lead">Nature's Underground Marvel</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <section class="hero-section text-center">
+        <div class="container">
+          <div class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill mb-4 text-uppercase fw-bold tracking-widest" style="font-size: 0.7rem;">
+            <i class="bi bi-geo-alt-fill me-1"></i> Andhra Pradesh, India
+          </div>
+          <h1 class="hero-title serif fw-bold">The Heart of <br><span class="text-secondary italic">Rayalaseema</span></h1>
+          <p class="lead text-secondary max-w-2xl mx-auto mb-5">
+            Discover the land of ancient temples, majestic forts, and the breathtaking Grand Canyon of India. Kadapa welcomes you with open arms and rich history.
+          </p>
+          <div class="d-flex justify-content-center gap-3">
+            <button class="btn btn-primary btn-lg" onclick="document.getElementById('destinations').scrollIntoView()">Explore Now</button>
+            <button class="btn btn-outline-dark btn-lg px-4" style="border-radius: 12px;" onclick="document.getElementById('events').scrollIntoView()">Plan Your Visit</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Destinations -->
+      <section id="destinations" class="py-5">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="serif fw-bold display-5">Popular Destinations</h2>
+            <p class="text-muted">Must-visit places in and around Kadapa</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100">
+                <img src="https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/08/Canyon-in-Gandikota-Cover-Photo-840x425.jpg" class="card-img-top" alt="Gandikota" referrerpolicy="no-referrer">
+                <div class="card-body p-4">
+                  <h5 class="card-title serif fw-bold">Gandikota</h5>
+                  <p class="card-text text-muted">Known as the Grand Canyon of India, featuring a stunning gorge and ancient fort.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <img src="https://i.ytimg.com/vi/AxYg3_TwSmM/maxresdefault.jpg" class="card-img-top" alt="Vontimitta" referrerpolicy="no-referrer">
+                <div class="card-body p-4">
+                  <h5 class="card-title serif fw-bold">Vontimitta</h5>
+                  <p class="card-text text-muted">Home to the magnificent Kodandarama Swamy Temple, a masterpiece of Vijayanagara architecture.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <img src="https://en-media.thebetterindia.com/uploads/2016/08/Group-Outing-Belum-Caves3-1152x668.jpg" class="card-img-top" alt="Belum Caves" referrerpolicy="no-referrer">
+                <div class="card-body p-4">
+                  <h5 class="card-title serif fw-bold">Belum Caves</h5>
+                  <p class="card-text text-muted">The second largest cave system in the Indian subcontinent, known for its stalactite formations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Events -->
+      <section id="events" class="py-5 bg-white">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="serif fw-bold display-5">Famous Events</h2>
+            <p class="text-muted">Experience the vibrant culture and traditions of the region through these grand celebrations.</p>
+          </div>
+          <div class="row g-5">
+            <div class="col-md-6 text-center">
+              <div class="mb-4 overflow-hidden rounded-4 shadow-sm">
+                <img src="https://th.bing.com/th/id/OIP.QAqBfDcanjUuxKG-G7T4UgHaEK?w=282&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="img-fluid hover-zoom" alt="Vontimitta Brahmotsavam" referrerpolicy="no-referrer" style="transition: transform 0.5s ease;">
+              </div>
+              <h4 class="serif fw-bold mb-2">Vontimitta Brahmotsavam</h4>
+              <p class="text-muted px-lg-5">A celestial wedding ceremony of Lord Rama and Sita, celebrated with immense devotion under the full moon.</p>
+              <span class="text-uppercase small fw-bold tracking-widest text-secondary">Annual Celebration</span>
+            </div>
+            <div class="col-md-6 text-center">
+              <div class="mb-4 overflow-hidden rounded-4 shadow-sm">
+                <img src="https://th.bing.com/th/id/OIP.Bh4IJTGgR-ZwVTXUYLBIFwHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="img-fluid hover-zoom" alt="Proddatur Dusshera" referrerpolicy="no-referrer" style="transition: transform 0.5s ease;">
+              </div>
+              <h4 class="serif fw-bold mb-2">Proddatur Dusshera</h4>
+              <p class="text-muted px-lg-5">Famous for its majestic processions and beautifully decorated 'Vahanams', rivaling the grandeur of Mysore Dasara.</p>
+              <span class="text-uppercase small fw-bold tracking-widest text-secondary">State Festival</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Food -->
+      <section id="food" class="py-5">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="serif fw-bold display-5">Famous Cuisine</h2>
+            <p class="text-muted">Taste the authentic flavors of Rayalaseema</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-3">
+              <div class="text-center">
+                <img src="https://th.bing.com/th/id/OIP.CYphkhX1-sm8tfMK9532kwHaEq?w=253&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;" alt="Karam Dosa" referrerpolicy="no-referrer">
+                <h6 class="serif fw-bold">Karam Dosa</h6>
+                <p class="text-muted small">Spicy and crispy dosa served with ginger chutney.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="text-center">
+                <img src="https://th.bing.com/th/id/OIP.Lp5P7D1SN839hE-48MvTJgHaFb?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;" alt="Ragi Sangati" referrerpolicy="no-referrer">
+                <h6 class="serif fw-bold">Ragi Sangati</h6>
+                <p class="text-muted small">A healthy staple made of finger millet and rice.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="text-center">
+                <img src="https://th.bing.com/th/id/OIP.i5t-CeAr9F_ciPSuTOMTvAHaFP?w=255&h=181&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;" alt="Natu Kodi Pulusu" referrerpolicy="no-referrer">
+                <h6 class="serif fw-bold">Natu Kodi Pulusu</h6>
+                <p class="text-muted small">Traditional spicy country chicken curry.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="text-center">
+                <img src="https://th.bing.com/th/id/OIP.JwFw1y2wDQ7HzDWY4SleCQHaEK?w=306&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="rounded-circle mb-3 shadow" style="width: 150px; height: 150px; object-fit: cover;" alt="Uggani" referrerpolicy="no-referrer">
+                <h6 class="serif fw-bold">Uggani</h6>
+                <p class="text-muted small">Puffed rice snack often paired with Mirchi Bajji.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Login View -->
+    <div id="login-view" class="view-section py-5 mt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-5">
+            <div class="card p-5">
+              <h2 class="serif fw-bold mb-4 text-center">Welcome Back</h2>
+              <form id="login-form">
+                <div class="mb-3">
+                  <label class="form-label fw-bold small text-uppercase">Email Address</label>
+                  <input type="email" id="login-email" class="form-control py-3" style="border-radius: 12px;" required>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label fw-bold small text-uppercase">Password</label>
+                  <input type="password" id="login-password" class="form-control py-3" style="border-radius: 12px;" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-3 mb-3">Login</button>
+                <p class="text-center text-muted small">
+                  Don't have an account? <a href="#" onclick="showView('register')" class="text-dark fw-bold">Register here</a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Register View -->
+    <div id="register-view" class="view-section py-5 mt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-5">
+            <div class="card p-5">
+              <h2 class="serif fw-bold mb-4 text-center">Create Account</h2>
+              <form id="register-form">
+                <div class="mb-3">
+                  <label class="form-label fw-bold small text-uppercase">Full Name</label>
+                  <input type="text" id="reg-name" class="form-control py-3" style="border-radius: 12px;" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold small text-uppercase">Email Address</label>
+                  <input type="email" id="reg-email" class="form-control py-3" style="border-radius: 12px;" required>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label fw-bold small text-uppercase">Password</label>
+                  <input type="password" id="reg-password" class="form-control py-3" style="border-radius: 12px;" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-3 mb-3">Register</button>
+                <p class="text-center text-muted small">
+                  Already have an account? <a href="#" onclick="showView('login')" class="text-dark fw-bold">Login here</a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Modal -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="mb-4">
+            <div class="bg-warning-subtle text-warning rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+              <i class="bi bi-person-fill fs-1"></i>
+            </div>
+          </div>
+          <h2 class="serif fw-bold mb-2">Welcome!</h2>
+          <p class="text-muted mb-4">Glad to have you back, <span id="welcome-name" class="fw-bold text-dark"></span>. Your journey through Kadapa continues.</p>
+          <button type="button" class="btn btn-primary w-100 py-3" data-bs-dismiss="modal">Continue Exploring</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- App Logic -->
+    <script>
+      let currentUser = JSON.parse(localStorage.getItem('kadapa_current_user')) || null;
+      const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+
+      function showView(viewId) {
+        document.querySelectorAll('.view-section').forEach(section => {
+          section.classList.remove('view-active');
+        });
+        document.getElementById(viewId + '-view').classList.add('view-active');
+        window.scrollTo(0, 0);
+        updateAuthLinks();
+      }
+
+      function updateAuthLinks() {
+        const authContainer = document.getElementById('auth-links');
+        if (currentUser) {
+          authContainer.innerHTML = `
+            <span class="fw-bold me-3 small text-uppercase">${currentUser.fullName}</span>
+            <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="logout()">Logout</button>
+          `;
+        } else {
+          authContainer.innerHTML = `
+            <button class="btn btn-link nav-link mx-2" onclick="showView('login')">Login</button>
+            <button class="btn btn-primary btn-sm rounded-pill px-4 ms-2" onclick="showView('register')">Join</button>
+          `;
+        }
+      }
+
+      function logout() {
+        currentUser = null;
+        localStorage.removeItem('kadapa_current_user');
+        showView('home');
+      }
+
+      // Login Logic
+      document.getElementById('login-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const users = JSON.parse(localStorage.getItem('kadapa_users')) || [];
+        const user = users.find(u => u.email === email);
+
+        if (user) {
+          currentUser = user;
+          localStorage.setItem('kadapa_current_user', JSON.stringify(user));
+          document.getElementById('welcome-name').innerText = user.fullName;
+          welcomeModal.show();
+          showView('home');
+          setTimeout(() => welcomeModal.hide(), 3000);
+        } else {
+          alert('User not found. Please register.');
+        }
+      });
+
+      // Register Logic
+      document.getElementById('register-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const newUser = {
+          id: Date.now(),
+          fullName: document.getElementById('reg-name').value,
+          email: document.getElementById('reg-email').value
+        };
+        const users = JSON.parse(localStorage.getItem('kadapa_users')) || [];
+        users.push(newUser);
+        localStorage.setItem('kadapa_users', JSON.stringify(users));
+        
+        currentUser = newUser;
+        localStorage.setItem('kadapa_current_user', JSON.stringify(newUser));
+        document.getElementById('welcome-name').innerText = newUser.fullName;
+        welcomeModal.show();
+        showView('home');
+        setTimeout(() => welcomeModal.hide(), 3000);
+      });
+
+      // Initial Load
+      updateAuthLinks();
+    </script>
+  </body>
+</html>
+
